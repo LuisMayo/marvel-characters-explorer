@@ -1,0 +1,4 @@
+<div *ngFor="let item of charList">
+    <img width="32px" height="32px" [src]="item.thumbnail.path + '.' + item.thumbnail.extension"/>
+    <div>{{item.name}}</div>
+</div>
