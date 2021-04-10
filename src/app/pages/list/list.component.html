@@ -1,7 +1,13 @@
 <div class="container-list">
-    <div *ngFor="let item of charList" class="character">
-        <img class="thumbnail" [src]="item.thumbnail.path + '.' + item.thumbnail.extension"/>
-        <div>{{item.name}}</div>
-        <p class="description">{{item.description}}</p>
-    </div>
+    <mat-card *ngFor="let item of charList" class="character" class="character">
+        <mat-card-header>
+          <mat-card-title>{{item.name}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="item.thumbnail.path + '.' + item.thumbnail.extension">
+        <mat-card-content>
+          <p class="description">
+            {{item.description}}
+          </p>
+        </mat-card-content>
+    </mat-card>
 </div>
