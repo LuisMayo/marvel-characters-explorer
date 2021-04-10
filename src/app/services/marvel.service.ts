@@ -7,11 +7,19 @@ import { CharactersResponse } from '../bean/characters-response';
 export class MarvelService {
 
   apikey = 'b02ce57104c29e93938b68c3e3e4ad7f';
+  baseURL = 'https://gateway.marvel.com';
 
   constructor() { }
 
-  async getCharacterList(page = 0): Promise<CharactersResponse> {
-    const response = await fetch('https://gateway.marvel.com/v1/public/characters?apikey=' + this.apikey);
+  getCharacterList(page = 0): Promise<CharactersResponse> {
+    return this.genericCallHandler('v1/public/characters');
+  }
+
+  async genericCallHandler(path: string, params = new URLSearchParams()): Promise<any> {
+    const fullurl = new URL(path, this.baseURL);
+    params.set('apikey', this.apikey);
+    fullurl.search = params.toString();
+    const response = await fetch(fullurl.toString());
     return response.json();
   }
 }
