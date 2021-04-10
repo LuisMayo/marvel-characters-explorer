@@ -1,5 +1,5 @@
 <div class="container-list">
-    <mat-card *ngFor="let item of charList" class="character" class="character">
+    <mat-card *ngFor="let item of charList" class="character" class="character" [routerLink]="'detail/' + item.id">
         <mat-card-header>
           <mat-card-title>{{item.name}}</mat-card-title>
         </mat-card-header>
