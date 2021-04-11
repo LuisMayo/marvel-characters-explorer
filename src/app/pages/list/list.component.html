@@ -1,13 +1,7 @@
 <div class="container-list">
-    <mat-card *ngFor="let item of charList" class="character" class="character" [routerLink]="'detail/' + item.id">
-        <mat-card-header>
-          <mat-card-title>{{item.name}}</mat-card-title>
-        </mat-card-header>
-        <img mat-card-image [src]="item.thumbnail.path + '.' + item.thumbnail.extension">
-        <mat-card-content>
-          <p class="description">
-            {{item.description}}
-          </p>
-        </mat-card-content>
-    </mat-card>
+  <app-info-card *ngFor="let item of charList" [routerLink]="'detail/' + item.id"
+  [description]="item.description"
+  [img]="item.thumbnail.path + '.' + item.thumbnail.extension"
+  [title]="item.name">
+  </app-info-card>
 </div>
