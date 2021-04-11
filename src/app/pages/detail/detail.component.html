@@ -1,1 +1,13 @@
-{{list | json}}
+<div class="container-list">
+    <mat-card *ngFor="let serie of list" class="character">
+        <mat-card-header>
+          <mat-card-title>{{serie.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image [src]="serie.thumbnail.path + '.' + serie.thumbnail.extension">
+        <mat-card-content>
+          <p class="description">
+            {{serie.description}}
+          </p>
+        </mat-card-content>
+    </mat-card>
+</div>
