@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Serie } from 'src/app/bean/serie';
+import { MarvelService } from 'src/app/services/marvel.service';
 
 @Component({
   selector: 'app-detail',
@@ -8,10 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute) { }
+  list: Serie[] = [];
+
+  constructor(private route: ActivatedRoute, private marvel: MarvelService) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.paramMap.get('id'));
+    this.marvel.getSeriesByCharacter(this.route.snapshot.paramMap.get('id') as string).then(response => this.list = response.data.results);
   }
 
 }

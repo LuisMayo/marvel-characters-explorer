@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { CharactersResponse } from '../bean/characters-response';
+import { Character } from '../bean/character';
+import { GenericResponse } from '../bean/generic-response-types';
+import { Serie } from '../bean/serie';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +13,12 @@ export class MarvelService {
 
   constructor() { }
 
-  getCharacterList(page = 0): Promise<CharactersResponse> {
+  getCharacterList(page = 0): Promise<GenericResponse<Character>> {
     return this.genericCallHandler('v1/public/characters');
+  }
+
+  getSeriesByCharacter(id: string): Promise<GenericResponse<Serie>> {
+    return this.genericCallHandler(`/v1/public/characters/${id}/series`);
   }
 
   async genericCallHandler(path: string, params = new URLSearchParams()): Promise<any> {

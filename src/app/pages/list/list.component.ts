@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Character } from 'src/app/bean/characters-response';
+import { Character } from 'src/app/bean/character';
 import { MarvelService } from 'src/app/services/marvel.service';
 
 @Component({
