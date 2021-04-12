@@ -1,5 +1,6 @@
 <label for="name-search">Name starts with: </label>
-<input placeholder="Spider-man" value="" id="name-search">
+<input placeholder="Spider-man" [(ngModel)]="nameStart" id="name-search">
+<button (click)="search()">Search</button>
 
 <div class="container-list">
     <mat-card *ngFor="let item of charList" class="character" class="character">

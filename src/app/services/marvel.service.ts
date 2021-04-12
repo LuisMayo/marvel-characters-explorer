@@ -11,8 +11,13 @@ export class MarvelService {
 
   constructor() { }
 
-  getCharacterList(page = 0): Promise<CharactersResponse> {
-    return this.genericCallHandler('v1/public/characters');
+  getCharacterList(name?: string): Promise<CharactersResponse> {
+    let params: URLSearchParams | undefined;
+    if (name) {
+      params = new URLSearchParams();
+      params.set('nameStartsWith', name);
+    }
+    return this.genericCallHandler('v1/public/characters', params);
   }
 
   async genericCallHandler(path: string, params = new URLSearchParams()): Promise<any> {
