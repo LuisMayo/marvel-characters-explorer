@@ -1,0 +1,8 @@
+.main-container {
+    display: flex;
+}
+
+.left-side {
+    background-color: lightslategrey;
+    height: 100vh;
+}

@@ -8,6 +8,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCardModule } from '@angular/material/card';
 import { DetailComponent } from './pages/detail/detail.component';
 import { InfoCardComponent } from './components/info-card/info-card.component';
+import { MatIconModule } from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { InfoCardComponent } from './components/info-card/info-card.component';
     MatCardModule,
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

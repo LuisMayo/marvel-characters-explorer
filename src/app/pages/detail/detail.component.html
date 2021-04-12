@@ -1,7 +1,19 @@
-<div class="container-list">
-    <app-info-card *ngFor="let serie of list"
-    [description]="serie.description"
-    [img]="serie.thumbnail.path + '.' + serie.thumbnail.extension"
-    [title]="serie.title">
-    </app-info-card>
-</div>
+<div class="main-container">
+    <div class="left-side">
+        <button mat-icon-button color="primary" aria-label="Go home" routerLink="/">
+            <mat-icon>home</mat-icon>
+        </button>
+        <app-info-card
+        [description]="character?.description"
+        [img]="character?.thumbnail?.path + '.' + character?.thumbnail?.extension"
+        [title]="character?.name">
+        </app-info-card>
+    </div>
+    <div class="container-list">
+        <app-info-card *ngFor="let serie of list"
+        [description]="serie.description"
+        [img]="serie.thumbnail.path + '.' + serie.thumbnail.extension"
+        [title]="serie.title">
+        </app-info-card>
+    </div>
+<div>

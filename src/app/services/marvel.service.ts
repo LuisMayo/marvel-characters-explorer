@@ -10,11 +10,19 @@ export class MarvelService {
 
   apikey = 'b02ce57104c29e93938b68c3e3e4ad7f';
   baseURL = 'https://gateway.marvel.com';
+  lastCharacterList: Character[] = [];
 
   constructor() { }
 
-  getCharacterList(page = 0): Promise<GenericResponse<Character>> {
-    return this.genericCallHandler('v1/public/characters');
+  async getCharacterList(page = 0): Promise<GenericResponse<Character>> {
+    const response = await this.genericCallHandler('v1/public/characters');
+    this.lastCharacterList = (response as GenericResponse<Character>).data.results;
+    return response;
+  }
+
+  // Done locally instead of by API because it excedes the goals of this exercice
+  getCharacter(id: string): Character | undefined {
+    return this.lastCharacterList.find(character => character.id === +id);
   }
 
   getSeriesByCharacter(id: string): Promise<GenericResponse<Serie>> {
