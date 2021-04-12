@@ -8,6 +8,7 @@ import { Serie } from '../bean/serie';
 })
 export class MarvelService {
 
+  // Ideally this api key would go in another file, too much hassle for a simple exercice
   apikey = 'b02ce57104c29e93938b68c3e3e4ad7f';
   baseURL = 'https://gateway.marvel.com';
   lastCharacterList: Character[] = [];
