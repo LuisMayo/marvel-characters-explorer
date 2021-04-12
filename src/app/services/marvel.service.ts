@@ -15,8 +15,13 @@ export class MarvelService {
 
   constructor() { }
 
-  async getCharacterList(page = 0): Promise<GenericResponse<Character>> {
-    const response = await this.genericCallHandler('v1/public/characters');
+  async getCharacterList(name?: string): Promise<GenericResponse<Character>> {
+    let params: URLSearchParams | undefined;
+    if (name) {
+      params = new URLSearchParams();
+      params.set('nameStartsWith', name);
+    }
+    const response = await this.genericCallHandler('v1/public/characters', params);
     this.lastCharacterList = (response as GenericResponse<Character>).data.results;
     return response;
   }

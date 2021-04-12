@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { DetailComponent } from './pages/detail/detail.component';
 import { InfoCardComponent } from './components/info-card/info-card.component';
 import { MatIconModule } from '@angular/material/icon';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -24,7 +25,9 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatIconModule
+    MatIconModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

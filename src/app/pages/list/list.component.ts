@@ -10,6 +10,7 @@ import { MarvelService } from 'src/app/services/marvel.service';
 export class ListComponent implements OnInit {
 
   charList: Character[] = [];
+  nameStart = '';
 
   constructor(private marvelServ: MarvelService) { }
 
@@ -19,4 +20,9 @@ export class ListComponent implements OnInit {
     });
   }
 
+  search(): void {
+    this.marvelServ.getCharacterList(this.nameStart).then(info => {
+      this.charList = info.data.results;
+    });
+  }
 }

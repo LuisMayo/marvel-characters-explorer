@@ -1,3 +1,7 @@
+<label for="name-search">Name starts with: </label>
+<input placeholder="Spider-man" [(ngModel)]="nameStart" id="name-search">
+<button (click)="search()">Search</button>
+
 <div class="container-list">
   <app-info-card *ngFor="let item of charList" [routerLink]="'detail/' + item.id"
   [description]="item.description"
